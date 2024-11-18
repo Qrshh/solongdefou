@@ -5,20 +5,23 @@ OBJ_DIR		= obj/
 
 CC 			= gcc
 CFLAGS		= -Wall -Wextra -Werror -g
-# PRFLAGS     = -ldl -lglfw -pthread -lm
+PRFLAGS     = -ldl -lglfw -pthread -lm
 RM			= rm -rf
 
 LIBFT_DIR	= $(INCLUDES)Libft/
 LIBFT		= $(LIBFT_DIR)libft.a
 
 MLX_DIR		= $(INCLUDES)MLX42/
-MLX			= $(MLX_DIR)build/libmlx42.a 
+MLX			= $(MLX_DIR)build/libmlx42.a $(PRFLAGS) 
 
 MAP_DIR 	= map/
-MAP_FILES	= init_assets init_map
+MAP_FILES	= init_map check_map check_path
 
 ASSET_DIR 	= assets/
-ASSET_FILES	= init_assets
+ASSET_FILES	= init_assets display_assets display_assets_utils 
+
+PLAYER_DIR 	= player/
+PLAYER_FILES	= player player_utils
 
 SRC_FILES	+= main utils
 SRC_FILES  	+= $(addprefix $(MAP_DIR), $(MAP_FILES))

@@ -1,39 +1,65 @@
 #include "so_long.h"
 
-void    image_select(t_map *map, int x, int y)
+void	image_select(t_map *map, int x, int y)
 {
-    if(map->matrix[x][y] != '\0')
-    {
-        if(map->matrix[x][y] == '0')
-            display_perso(map, x, y);
-    }
+	if (map->matrix[y][x] != '\0')
+	{
+		if (map->matrix[y][x] == '1')
+			display_wall(map, x, y);
+		if (map->matrix[y][x] == '0')
+			display_floor(map, x, y);
+		if (map->matrix[y][x] == 'C')
+			display_collectibles(map, x, y);
+		if (map->matrix[y][x] == 'E')
+			display_chest(map, x, y);
+	}
 }
 
-void    display_assets(t_map *map)
+void	display_assets(t_all *all)
 {
+	int	x;
+	int	y;
+	int	check_x;
+	int	check_y;
+
+	check_x = -1;
+	check_y = -1;
+	y = 0;
+	while (y < all->map.height)
+	{
+		x = 0;
+		while (all->map.matrix[y][x])
+		{
+			image_select(&all->map, x, y);
+			if (all->map.matrix[y][x] == 'P')
+			{
+				check_x = x;
+				check_y = y;
+			}
+			x++;
+		}
+		y++;
+	}
+	if (check_x != -1 && check_y != -1)
+		display_perso(all, check_x, check_y);
+}
+
+void delete_img_collected(t_all *all)
+{
+    int i;
     int x;
     int y;
-    int check_x;
-    int check_y;
 
-    check_x = -1;
-    check_y = -1;
-    x = 0;
-    while(x < map->height)
+    x = all->player.x;
+    y = all->player.y;
+    i = 0;
+    while(i < all->map.info.collectibles)
     {
-        y = 0;
-        while(map->matrix[y][x])
+        if(all->map.array[3].image->instances[i].x == x)
         {
-            image_select(map, x, y);
-            if(map->matrix[x][y] == 'P')
-            {
-                check_x = x;
-                check_y = y;
-            }
-            y++;
+            if(all->map.array[3].image->instances[i].y == y)
+                all->map.array[3].image->instances[i].enabled = false;
         }
-        x++;
+        i++;
     }
-    if(check_x != -1 && check_y != -1)
-        display_hero(map, check_x, check_y);
 }

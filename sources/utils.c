@@ -29,3 +29,17 @@ void	handler_error(int ac, char **av)
 	if (ft_strnstr(av[1], ".ber", ft_strlen(av[1])) == NULL)
 		exit_error("Error \nWrong extension for map", NULL);
 }
+
+void	event_listener(mlx_key_data_t press, void *param)
+{
+	t_all	*all;
+
+	all = (t_all *)param;
+	select_key(press, all);
+	delete_img_collected(all);
+}
+
+void	destroy_window(t_map *map)
+{
+	mlx_terminate(map->mlx);
+}
