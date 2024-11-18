@@ -1,4 +1,4 @@
-NAME		= solong
+NAME		= so_long
 INCLUDES	= includes/
 SRC_DIR		= sources/
 OBJ_DIR		= obj/

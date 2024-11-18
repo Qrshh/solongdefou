@@ -56,7 +56,7 @@ void	up(t_all *all)
 
 void	down(t_all *all)
 {
-	int y;
+	int	y;
 
 	y = all->player.y + 32;
 	if (check_move(&all->map, all->player.x, y))

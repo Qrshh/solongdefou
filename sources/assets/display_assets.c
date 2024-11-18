@@ -44,22 +44,22 @@ void	display_assets(t_all *all)
 		display_perso(all, check_x, check_y);
 }
 
-void delete_img_collected(t_all *all)
+void	delete_img_collected(t_all *all)
 {
-    int i;
-    int x;
-    int y;
+	int	i;
+	int	x;
+	int	y;
 
-    x = all->player.x;
-    y = all->player.y;
-    i = 0;
-    while(i < all->map.info.collectibles)
-    {
-        if(all->map.array[3].image->instances[i].x == x)
-        {
-            if(all->map.array[3].image->instances[i].y == y)
-                all->map.array[3].image->instances[i].enabled = false;
-        }
-        i++;
-    }
+	x = all->player.x;
+	y = all->player.y;
+	i = 0;
+	while (i < all->map.info.collectibles)
+	{
+		if (all->map.array[3].image->instances[i].x == x)
+		{
+			if (all->map.array[3].image->instances[i].y == y)
+				all->map.array[3].image->instances[i].enabled = false;
+		}
+		i++;
+	}
 }
