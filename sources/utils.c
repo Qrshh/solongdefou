@@ -24,9 +24,15 @@ void	free_map(char **tab)
 
 void	handler_error(int ac, char **av)
 {
+	int	i;
+
+	i = 0;
 	if (ac != 2)
-		exit_error("Args Problem", NULL);
-	if (ft_strnstr(av[1], ".ber", ft_strlen(av[1])) == NULL)
+		exit_error("Error \nArgs Problem", NULL);
+	while (av[1][i])
+		i++;
+	if (av[1][i - 1] != 'r' || av[1][i - 2] != 'e' || av[1][i - 3] != 'b' || av[1][i
+		- 4] != '.')
 		exit_error("Error \nWrong extension for map", NULL);
 }
 

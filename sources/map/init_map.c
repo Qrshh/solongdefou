@@ -17,6 +17,8 @@ void	init_map(t_map *map)
 
 	i = 0;
 	gnl = get_next_line(map->fd);
+	if(!gnl)
+		exit_error("Error \nMap is empty", NULL);
 	map->matrix = ft_calloc(1, sizeof(char *) * 9999);
 	map->width = len_map(gnl);
 	while (gnl)

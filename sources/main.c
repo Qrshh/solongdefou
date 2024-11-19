@@ -8,7 +8,7 @@ int	main(int ac, char **av)
 	init_var(&all);
 	all.map.fd = open(av[1], O_RDONLY);
 	if (all.map.fd < 0)
-		exit_error("Fichier inexistant", NULL);
+		exit_error("Error \nFichier inexistant", NULL);
 	init_map(&all.map);
 	all.map.mlx = mlx_init((all.map.width * TILE_SIZE), (all.map.height
 				* TILE_SIZE), "so_long", true);

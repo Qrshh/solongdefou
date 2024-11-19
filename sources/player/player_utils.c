@@ -2,7 +2,7 @@
 
 void	moove_update(t_all *all)
 {
-	ft_printf("Nombres de pas : %d\n", all->player.nb_moove++);
+	ft_printf("Nombres de pas : %d\n", 1 + all->player.nb_moove++);
 }
 
 int	check_move(t_map *map, int new_x, int new_y)
@@ -15,7 +15,7 @@ int	check_move(t_map *map, int new_x, int new_y)
 		return (0);
 	else if (map->matrix[new_y][new_x] == 'C')
 	{
-		ft_printf("Collected !");
+		ft_printf("Collected !\n");
 		map->items_collected++;
 		map->matrix[new_y][new_x] = '0';
 	}

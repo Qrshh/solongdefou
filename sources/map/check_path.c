@@ -66,7 +66,7 @@ int	check_path(t_all *all)
 
 	flood_map = duplicate_map(all->map.matrix);
 	if (!flood_map)
-		exit_error("Cloning map error", NULL);
+		exit_error("Error \nCloning map error", NULL);
 	x = all->player.x / TILE_SIZE;
 	y = all->player.y / TILE_SIZE;
 	requirements[0] = 0;
@@ -76,12 +76,12 @@ int	check_path(t_all *all)
 	if (!requirements[0])
 	{
 		destroy_window(&all->map);
-		exit_error("No game issue found", all->map.matrix);
+		exit_error("Error \nNo game issue found", all->map.matrix);
 	}
 	if (requirements[1] != all->map.info.collectibles)
 	{
 		destroy_window(&all->map);
-		exit_error("Not enough collectible", all->map.matrix);
+		exit_error("Error \nNot enough collectible", all->map.matrix);
 	}
 	return (0);
 }

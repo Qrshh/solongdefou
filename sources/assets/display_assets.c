@@ -24,8 +24,8 @@ void	display_assets(t_all *all)
 
 	check_x = -1;
 	check_y = -1;
-	y = 0;
-	while (y < all->map.height)
+	y = -1;
+	while (++y < all->map.height)
 	{
 		x = 0;
 		while (all->map.matrix[y][x])
@@ -35,10 +35,10 @@ void	display_assets(t_all *all)
 			{
 				check_x = x;
 				check_y = y;
+				all->map.info.player++;
 			}
 			x++;
 		}
-		y++;
 	}
 	if (check_x != -1 && check_y != -1)
 		display_perso(all, check_x, check_y);

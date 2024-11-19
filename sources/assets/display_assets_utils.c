@@ -15,7 +15,6 @@ void	display_perso(t_all *all, int x, int y)
 	all->player.y = image_y;
 	mlx_image_to_window(all->map.mlx, img2, image_x, image_y);
 	mlx_image_to_window(all->map.mlx, img, image_x, image_y);
-	all->map.info.player++;
 }
 
 void	display_chest(t_map *map, int x, int y)
