@@ -81,7 +81,7 @@ int	check_path(t_all *all)
 	if (requirements[1] != all->map.info.collectibles)
 	{
 		destroy_window(&all->map);
-		exit_error("Error \nNot enough collectible", all->map.matrix);
+		exit_error("Error \nCollectibles are not all accessibles", all->map.matrix);
 	}
 	return (0);
 }

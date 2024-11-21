@@ -31,8 +31,8 @@ void	handler_error(int ac, char **av)
 		exit_error("Error \nArgs Problem", NULL);
 	while (av[1][i])
 		i++;
-	if (av[1][i - 1] != 'r' || av[1][i - 2] != 'e' || av[1][i - 3] != 'b' || av[1][i
-		- 4] != '.')
+	if (av[1][i - 1] != 'r' || av[1][i - 2] != 'e' || av[1][i - 3] != 'b'
+		|| av[1][i - 4] != '.')
 		exit_error("Error \nWrong extension for map", NULL);
 }
 
