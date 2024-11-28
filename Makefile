@@ -5,7 +5,7 @@ OBJ_DIR		= obj/
 
 CC 			= gcc
 CFLAGS		= -Wall -Wextra -Werror -g3
-PRFLAGS     = -ldl -lglfw -pthread -lm
+PRFLAGS     = -L/opt/homebrew/lib -ldl -lglfw -pthread -lm
 RM			= rm -rf
 
 LIBFT_DIR	= $(INCLUDES)Libft/
